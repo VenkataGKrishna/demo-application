@@ -1,7 +1,9 @@
 pipeline {
 
     agent any
-    
+    tools {
+        maven 'maven'
+    }
     stages {
 
         stage('GIT Checkout'){
@@ -13,7 +15,7 @@ pipeline {
         stage('UNIT Testing'){
 
             steps{
-                sh 'mvn test $(maven)'
+                sh '$(maven) test'
             }
         }
     }
