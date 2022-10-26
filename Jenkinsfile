@@ -7,16 +7,22 @@ pipeline {
 
     stages {
 
-        stage('GIT Checkout'){
+        stage('Git Checkout'){
 
             steps{
                 git 'https://github.com/VenkataGKrishna/demo-application.git'
             }
         }
-        stage('UNIT Testing'){
+        stage('Unit Testing'){
 
             steps{
                 sh 'mvn test'
+            }
+        }
+         stage('Integration Testing'){
+
+            steps{
+                sh 'mvn verify -DskipUnitTests'
             }
         }
     }
