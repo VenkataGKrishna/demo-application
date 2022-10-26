@@ -15,7 +15,7 @@ pipeline {
         stage('UNIT Testing'){
 
             steps{
-                sh '$(maven) test'
+                sh 'mvn -Dmaven.test.failure.ignore=true install'
             }
         }
     }
