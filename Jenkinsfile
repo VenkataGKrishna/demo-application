@@ -32,6 +32,7 @@ pipeline {
             }
         }
         stage('Static Code Analysis'){
+            
             steps{
                 script{
                   withSonarQubeEnv(credentialsId: 'SONAR_KEY') {
@@ -39,6 +40,14 @@ pipeline {
                   }
                 }
             }
+        }
+        stage("Quality Gate Status"){
+
+            steps{
+                script{
+                    waitForQualityGate abortPipeline: false, credentialsId: 'SONAR_KEY'
+                }
+            } 
         }
     }
 }
