@@ -25,10 +25,19 @@ pipeline {
                 sh 'mvn verify -DskipUnitTests'
             }
         }
-         stage('Maven Build'){
+        stage('Maven Build'){
 
             steps{
                 sh 'mvn clean install'
+            }
+        }
+        stage('Static Code Analysis'){
+            steps{
+                scripts{
+                  withSonarQubeEnv(credentialsId: 'SONAR_KEY') {
+                  sh 'mvn clean package sonar:sonar'     
+                  }
+                }
             }
         }
     }
