@@ -45,7 +45,7 @@ pipeline {
 
             steps{
                 script{
-                  waitForQualityGate abortPipeline: false, credentialsId: 'SONAR-KEY'
+                  waitForQualityGate abortPipeline: false, (credentialsId: 'SONAR_KEY')
                 }
             } 
         }
