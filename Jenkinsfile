@@ -41,11 +41,11 @@ pipeline {
                 }
             }
         }
-        stage("Quality Status"){
+        stage("Quality Gate Status"){
 
             steps{
                 script{
-                  waitForQualityGate abortPipeline: true, credentialsId: 'SONAR_KEY'
+                  waitForQualityGate abortPipeline: true
                 }
             } 
         }
