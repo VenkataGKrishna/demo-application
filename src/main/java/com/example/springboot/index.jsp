@@ -26,7 +26,7 @@
 <body>
     <div id="content">
         <div class="global-loading">
-            <i class="spinner global-loading-spinner"></i> 
+            <em class="spinner global-loading-spinner"></em> 
             <span aria-live="polite" class="global-loading-text">Loading...</span>
         </div>
     </div>
