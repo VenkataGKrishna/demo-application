@@ -52,6 +52,7 @@ pipeline {
         stage("Upload warfile to Nexus"){
 
             steps{
+                def readpomversion = readmavenpom file: 'pom.xml'
                 script{
                     nexusArtifactUploader artifacts: [
                         [
@@ -66,7 +67,7 @@ pipeline {
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: 'demoapp-release', 
-                        version: '1.0.0'
+                        version: "${readpomversion.version}"
                 }
             }
         }
