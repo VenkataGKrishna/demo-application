@@ -86,7 +86,7 @@ pipeline {
 
             }
         }
-        stage('Docker Image Build'){
+        stage('Docker Push Image'){
 
             steps{
 
