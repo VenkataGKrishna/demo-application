@@ -32,13 +32,13 @@
     </div>
 
     <script>
-        window.baseUrl = '';
+        wind.baseUrl = '';
         window.serverStatus = 'UP';
         window.instance = 'SonarQube';
         window.official = true;
     </script>
 
     <script type="module" src="/js/outO22A765U.js"></script>
-
+</body>
 
 </html>
