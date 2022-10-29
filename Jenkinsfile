@@ -55,6 +55,7 @@ pipeline {
       
                 script{
                      def pom = readMavenPom file: 'pom.xml'
+                     def mavenRepo = readMavenPom.version.endsWith ("SNAPSHOT") ? "demoapp-snapshot" : "demoapp-release"
                      nexusArtifactUploader artifacts: [
                         [
                             artifactId: 'springboot', 
@@ -67,7 +68,7 @@ pipeline {
                         nexusUrl: '18.216.93.133:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
-                        repository: 'demoapp-release', 
+                        repository: mavenRepo, 
                         version: "${pom.version}"
                 }
             }
