@@ -86,5 +86,18 @@ pipeline {
 
             }
         }
+        stage('Docker Image Build'){
+
+            steps{
+
+                script{
+                    withCredentials([string(credentialsId: 'DOCKERHUB_CRED', variable: 'Docker_HUB')]) {
+                       sh 'docker login -u venkata1981 -p ${Docker_HUB}'             
+                       sh 'docker image push venkata1981/$JOB_NAME:v1.$BUILD_ID'
+                       sh 'docker image push venkata1981/$JOB_NAME:latest'
+                    }
+                }
+            }
+        }
     }
 }
